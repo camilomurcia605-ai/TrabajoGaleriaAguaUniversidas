@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Galería Virtual — Ética de la Vida y Gobernanza del Agua</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Source+Sans+3:wght@300;400;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --water-deep: #0B3D5B;
+  --water-mid: #1A6B8A;
+  --water-light: #4DA8C4;
+  --earth: #6B4E3D;
+  --sand: #D4C5A9;
+  --cream: #F7F3ED;
+  --text: #2C2C2C;
+  --text-light: #5A5A5A;
+  box-sizing: border-box;
+  padding-top: env(safe-area-inset-top, 0px);
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --cream: #1a1a1a;
+    --text: #e0e0e0;
+    --text-light: #aaa;
+    --sand: #3a3328;
+  }
+}
+:root[data-theme="dark"] {
+  --cream: #1a1a1a;
+  --text: #e0e0e0;
+  --text-light: #aaa;
+  --sand: #3a3328;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { scroll-padding-top: env(safe-area-inset-top, 0px); }
+
+body {
+  font-family: 'Source Sans 3', sans-serif;
+  background: var(--cream);
+  color: var(--text);
+  line-height: 1.7;
+  font-weight: 300;
+}
+
+.hero {
+  background: linear-gradient(135deg, var(--water-deep) 0%, var(--water-mid) 50%, var(--water-light) 100%);
+  color: white;
+  padding: 3rem 1.5rem 2.5rem;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0; right: 0;
+  height: 40px;
+  background: var(--cream);
+  border-radius: 50% 50% 0 0 / 100% 100% 0 0;
+}
+
+.hero h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(1.6rem, 5vw, 2.4rem);
+  font-weight: 700;
+  margin-bottom: .5rem;
+  letter-spacing: -0.02em;
+}
+
+.hero .subtitle {
+  font-size: 1rem;
+  opacity: .85;
+  max-width: 540px;
+  margin: 0 auto;
+  font-weight: 300;
+}
+
+.hero .tag {
+  display: inline-block;
+  margin-top: 1rem;
+  padding: .3rem 1rem;
+  border: 1px solid rgba(255,255,255,.4);
+  border-radius: 20px;
+  font-size: .8rem;
+  letter-spacing: .05em;
+}
+
+.intro {
+  max-width: 640px;
+  margin: 2rem auto;
+  padding: 0 1.5rem;
+  text-align: center;
+  color: var(--text-light);
+  font-size: .95rem;
+}
+
+.gallery {
+  max-width: 720px;
+  margin: 0 auto 3rem;
+  padding: 0 1.2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+}
+
+.testimony {
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 2px 20px rgba(11,61,91,.08);
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .testimony { background: #252525; }
+}
+:root[data-theme="dark"] .testimony { background: #252525; }
+
+.testimony-visual {
+  height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 4rem;
+  position: relative;
+}
+
+.testimony:nth-child(1) .testimony-visual {
+  background: linear-gradient(160deg, #2E86AB, #1B4965);
+}
+.testimony:nth-child(2) .testimony-visual {
+  background: linear-gradient(160deg, #5B8C5A, #3A5A40);
+}
+.testimony:nth-child(3) .testimony-visual {
+  background: linear-gradient(160deg, #8B6914, #5C4A1E);
+}
+.testimony:nth-child(4) .testimony-visual {
+  background: linear-gradient(160deg, #6A5ACD, #3D3472);
+}
+
+.testimony-visual .icon-text {
+  color: rgba(255,255,255,.15);
+  font-size: 6rem;
+  position: absolute;
+  font-family: 'Playfair Display', serif;
+  font-weight: 700;
+}
+
+.testimony-visual .emoji {
+  font-size: 3.5rem;
+  position: relative;
+  z-index: 1;
+}
+
+.testimony-body {
+  padding: 1.5rem;
+}
+
+.testimony-location {
+  font-size: .75rem;
+  color: var(--water-mid);
+  font-weight: 600;
+  letter-spacing: .04em;
+  margin-bottom: .4rem;
+}
+
+.testimony-body h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--water-deep);
+  margin-bottom: .6rem;
+  line-height: 1.3;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .testimony-body h2 { color: var(--water-light); }
+  :root:not([data-theme="light"]) .testimony-location { color: var(--water-light); }
+}
+:root[data-theme="dark"] .testimony-body h2 { color: var(--water-light); }
+:root[data-theme="dark"] .testimony-location { color: var(--water-light); }
+
+.testimony-body p {
+  font-size: .92rem;
+  color: var(--text-light);
+  margin-bottom: .6rem;
+}
+
+.testimony-body .quote {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-size: 1rem;
+  color: var(--earth);
+  border-left: 3px solid var(--sand);
+  padding-left: 1rem;
+  margin: 1rem 0;
+}
+
+.reflection {
+  max-width: 640px;
+  margin: 0 auto 3rem;
+  padding: 2rem 1.5rem;
+  background: var(--sand);
+  border-radius: 12px;
+  margin-left: 1.2rem;
+  margin-right: 1.2rem;
+}
+
+.reflection h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.15rem;
+  color: var(--water-deep);
+  margin-bottom: .6rem;
+}
+
+.reflection p {
+  font-size: .9rem;
+  color: var(--text-light);
+}
+
+.footer {
+  text-align: center;
+  padding: 2rem 1.5rem;
+  font-size: .8rem;
+  color: var(--text-light);
+  border-top: 1px solid var(--sand);
+  max-width: 640px;
+  margin: 0 auto;
+}
+
+.footer strong {
+  display: block;
+  margin-bottom: .3rem;
+  color: var(--text);
+}
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <h1>Voces del Agua</h1>
+  <p class="subtitle">Testimonios sobre prácticas ancestrales de crianza de agua y gobernanza comunitaria</p>
+  <span class="tag">Eje 4 — Ética de la vida y gobernanza del agua</span>
+</div>
+
+<p class="intro">
+  Esta galería reúne cuatro testimonios inspirados en las experiencias documentadas por Kashyapa A. S. Yapa en su guía de campo <em>Prácticas ancestrales de crianza de agua</em>, así como en las voces de comunidades que gestionan el recurso hídrico desde la autogestión y la cosmovisión andina.
+</p>
+
+<div class="gallery">
+
+  <!-- Testimonio 1 -->
+  <div class="testimony">
+    <div class="testimony-visual">
+      <span class="icon-text">01</span>
+      <span class="emoji">🏔️</span>
+    </div>
+    <div class="testimony-body">
+      <p class="testimony-location">Comunidades quechuas — Andes del Perú</p>
+      <h2>Las Amunas: sembrar el agua para cosecharla después</h2>
+      <p>En las alturas de los Andes peruanos, las comunidades quechuas practican desde hace siglos el sistema de las <em>amunas</em>: canales ancestrales que desvían el agua de lluvia hacia zonas de infiltración en la montaña. El agua se filtra lentamente a través de la roca y reaparece meses después en manantiales río abajo, justo cuando la temporada seca más la necesita.</p>
+      <div class="quote">"Nosotros no solo usamos el agua, la criamos. La llevamos a la montaña para que descanse en la tierra y luego ella nos devuelve el favor cuando más la necesitamos."</div>
+      <p>Esta práctica milenaria demuestra que las comunidades indígenas desarrollaron sistemas sofisticados de gestión hídrica mucho antes de la ingeniería moderna, integrando el conocimiento del terreno, el clima y los ciclos naturales.</p>
+    </div>
+  </div>
+
+  <!-- Testimonio 2 -->
+  <div class="testimony">
+    <div class="testimony-visual">
+      <span class="icon-text">02</span>
+      <span class="emoji">🌿</span>
+    </div>
+    <div class="testimony-body">
+      <p class="testimony-location">Costa de Ecuador — Comunidades campesinas</p>
+      <h2>Albarradas: reservorios familiares para tiempos difíciles</h2>
+      <p>En la costa ecuatoriana, las familias campesinas construyen <em>albarradas</em> o <em>cochas</em>: pequeños reservorios artesanales que almacenan agua de lluvia para uso doméstico y riego durante los meses secos. Cada familia cuida su albarrada como parte de la vida cotidiana, limpiando los canales y reforzando los muros de tierra.</p>
+      <div class="quote">"Mi abuela me enseñó que el agua tiene memoria. Si la tratas con respeto, ella recuerda tu casa y vuelve cada año. Si la desperdicias, se va a buscar a otra familia."</div>
+      <p>Las albarradas representan un modelo de autogestión familiar del agua que complementa los sistemas comunitarios más amplios, y su efectividad depende directamente del cuidado del suelo y la vegetación circundante.</p>
+    </div>
+  </div>
+
+  <!-- Testimonio 3 -->
+  <div class="testimony">
+    <div class="testimony-visual">
+      <span class="icon-text">03</span>
+      <span class="emoji">🌾</span>
+    </div>
+    <div class="testimony-body">
+      <p class="testimony-location">Altiplano de Bolivia — Comunidad aimara</p>
+      <h2>Pronosticar el clima leyendo la naturaleza</h2>
+      <p>Las comunidades aimaras del altiplano boliviano mantienen viva una tradición de pronóstico climático basada en indicadores naturales: el comportamiento de ciertos animales, la floración de plantas específicas, la posición de las estrellas y la dirección del viento en fechas clave del calendario agrícola. Estos conocimientos permiten planificar la siembra y el almacenamiento de agua con meses de anticipación.</p>
+      <div class="quote">"Cuando el zorro ladra hacia el valle, el agua vendrá abundante. Cuando mira hacia la montaña, hay que prepararse para la sequía. Mis abuelos nunca fallaron con esas señas."</div>
+      <p>Yapa documenta cómo estos sistemas de observación ambiental, transmitidos oralmente por generaciones, han demostrado niveles de precisión comparables a los modelos meteorológicos modernos para predicciones locales a mediano plazo.</p>
+    </div>
+  </div>
+
+  <!-- Testimonio 4 -->
+  <div class="testimony">
+    <div class="testimony-visual">
+      <span class="icon-text">04</span>
+      <span class="emoji">💧</span>
+    </div>
+    <div class="testimony-body">
+      <p class="testimony-location">Villavicencio, Meta — Colombia</p>
+      <h2>Acueductos comunitarios: gobernanza del agua desde la base</h2>
+      <p>En Colombia existen más de 30.000 acueductos comunitarios que abastecen de agua a más de 9 millones de personas en zonas rurales. En Villavicencio, la Red de Acueductos Comunitarios ACER Agua Viva ha impulsado la creación de políticas públicas de gestión comunitaria del agua, combinando la conservación de cuencas hídricas con la defensa del territorio frente a actividades extractivas.</p>
+      <div class="quote">"Para cuidar el agua hay que cuidar la biodiversidad y los ecosistemas. Nosotros desde los acueductos comunitarios le estamos mostrando a las autoridades cuál es la importancia de conservar la montaña."</div>
+      <p>Los acueductos comunitarios colombianos son un ejemplo vivo de gobernanza del agua: organizaciones sin ánimo de lucro donde las comunidades rurales captan, potabilizan y distribuyen agua mediante autogestión, cuotas solidarias y trabajo voluntario.</p>
+    </div>
+  </div>
+
+</div>
+
+<div class="reflection">
+  <h3>Reflexión final</h3>
+  <p>Estos testimonios nos muestran que la gobernanza del agua no es un concepto abstracto: es la práctica cotidiana de comunidades que han aprendido, a lo largo de generaciones, a convivir con el agua como un ser vivo al que se cría, se respeta y se cuida. Frente al cambio climático y la creciente escasez hídrica, las prácticas ancestrales de crianza de agua ofrecen no solo soluciones técnicas, sino una ética de la relación con la naturaleza que la gestión moderna del recurso hídrico necesita incorporar.</p>
+</div>
+
+<div class="footer">
+  <strong>Ética de la vida y gobernanza del agua — Eje 4</strong>
+  Elaborado por Carolina Mora Porras<br>
+  Basado en <em>Prácticas ancestrales de crianza de agua</em> de Kashyapa A. S. Yapa (Ph.D. UC Berkeley)
+</div>
+
+</body>
+</html>
